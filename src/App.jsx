@@ -1,38 +1,16 @@
-import axios from "axios";
-import { useState, useEffect } from "react";
+import useMousePosition from "./components/updateMousePosition";
 
-const App = () => {
-  const [data, setData] = useState([]);
-  const [error, setError] = useState(null);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get(
-          "https://jsonplaceholder.typicode.com/posts"
-        );
-        setData(response.data);
-      } catch (err) {
-        setError(err);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchData();
-  }, []);
-
-  if (loading) return <p>Ładowanie...</p>;
-  if (error) return <p>Błąd: {error.message}</p>;
+function App() {
+  const { x, y } = useMousePosition();
 
   return (
-    <ul>
-      {data.map((post) => (
-        <li key={post.id}>{post.title}</li>
-      ))}
-    </ul>
+    <div>
+      <h1>Pozycja kursora</h1>
+      <p>
+        X: {x}, Y: {y}
+      </p>
+    </div>
   );
-};
+}
 
 export default App;
