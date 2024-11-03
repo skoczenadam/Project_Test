@@ -1,15 +1,16 @@
-import useMousePosition from "./components/updateMousePosition";
+import { Form } from "./components/Form";
+import { LikeCounter } from "./components/likeCounter";
+import { Plot } from "./components/Plot";
 
 function App() {
-  const { x, y } = useMousePosition();
-
   return (
-    <div>
-      <h1>Pozycja kursora</h1>
-      <p>
-        X: {x}, Y: {y}
-      </p>
-    </div>
+    <>
+      <h1>Gwiezdne wojny</h1>
+      <h2>Rok produkcji: 1980</h2>
+      <LikeCounter />
+      <Plot />
+      <Form />
+    </>
   );
 }
 
