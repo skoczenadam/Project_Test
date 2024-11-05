@@ -1,3 +1,4 @@
+import { Exercises } from "./components/Exercises";
 import { Form } from "./components/Form";
 import { LikeCounter } from "./components/likeCounter";
 import { Plot } from "./components/Plot";
@@ -10,6 +11,7 @@ function App() {
       <LikeCounter />
       <Plot />
       <Form />
+      <Exercises />
     </>
   );
 }
